@@ -1,26 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant+Garamond:wght@400;500;600&family=Josefin+Sans:wght@300;400;600&family=Dancing+Script:wght@400;600&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500&family=Abril+Fatface&family=Pacifico&family=Nunito:wght@300;400;600&family=Lato:wght@300;400;700&family=Hind:wght@300;400;500&family=Satisfy&family=Lora:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&family=IM+Fell+English:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Tiro+Devanagari+Hindi&display=swap');
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0C0A09;
+  --foreground: #FAFAF9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: 'Playfair Display', serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-body: 'Cormorant Infant', serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Persona animation */
+.persona-animated {
+  transition: transform 0.3s ease;
+}
+.persona-animated:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Smooth scroll for lenis */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Template-specific scrollbar */
+.template-noir-gold::-webkit-scrollbar {
+  width: 3px;
+}
+.template-noir-gold::-webkit-scrollbar-track {
+  background: #0C0A09;
+}
+.template-noir-gold::-webkit-scrollbar-thumb {
+  background: #A16207;
+  border-radius: 2px;
+}
+
+/* Selection color */
+::selection {
+  background: #A16207;
+  color: #0C0A09;
+}
+
+/* Mandala slow spin */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+/* Shaadi Rang scrollbar */
+.template-shaadi::-webkit-scrollbar { width: 3px; }
+.template-shaadi::-webkit-scrollbar-track { background: #1A0505; }
+.template-shaadi::-webkit-scrollbar-thumb { background: #DC2626; border-radius: 2px; }
+
+/* Celestial template scrollbar */
+.template-celestial::-webkit-scrollbar { width: 3px; }
+.template-celestial::-webkit-scrollbar-track { background: #050510; }
+.template-celestial::-webkit-scrollbar-thumb { background: #7C3AED; border-radius: 2px; }
+
+/* ── MOBILE GLOBAL FIXES ── */
+
+/* Prevent horizontal overflow on all templates */
+.template-noir-gold,
+.template-shaadi,
+.template-celestial,
+.template-mountain,
+.template-beach,
+.template-garden,
+.template-royal {
+  overflow-x: hidden;
+}
+
+/* Fluid hero titles — clamp prevents overflow on 375px */
+@media (max-width: 640px) {
+  /* Nav: hide step labels on mobile, show only current */
+  .builder-steps-full { display: none; }
+
+  /* Persona pair: stack vertically on very small screens */
+  .persona-pair {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Date sections: wrap and shrink numbers */
+  .date-flex {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Gallery cards: full width */
+  .template-card {
+    width: 100%;
+  }
+
+  /* Builder form: full width inputs */
+  .builder-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fluid type scale used across all templates */
+.fluid-display {
+  font-size: clamp(2.5rem, 10vw, 7rem);
+  line-height: 1;
+}
+.fluid-title {
+  font-size: clamp(1.8rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+.fluid-subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* Touch targets — minimum 44px for all interactive elements */
+button, a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix SVG persona overflow on small screens */
+.persona-pair svg {
+  max-width: 140px;
+}
+
+/* Prevent text overflow in story sections */
+.story-text {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* WhatsApp share button */
+.whatsapp-btn {
+  background: #25D366;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.whatsapp-btn:hover { background: #128C7E; }

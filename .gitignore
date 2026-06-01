@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# invite data store (local file DB — swap for Supabase in prod)
+.data/
+
+# user uploaded photos
+/public/uploads/

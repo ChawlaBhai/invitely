@@ -1,0 +1,23 @@
+{
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "regions": ["bom1"],
+  "env": {
+    "NEXT_PUBLIC_BASE_URL": "https://invitely.in"
+  },
+  "headers": [
+    {
+      "source": "/uploads/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/api/og/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=86400" }
+      ]
+    }
+  ]
+}

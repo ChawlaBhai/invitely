@@ -3,7 +3,16 @@
     "allow": [
       "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git)",
       "Bash(mv CLAUDE.md /tmp/CLAUDE.md.bak)",
-      "Bash(mv /tmp/CLAUDE.md.bak CLAUDE.md)"
+      "Bash(mv /tmp/CLAUDE.md.bak CLAUDE.md)",
+      "Bash(npm install *)",
+      "Read(//Users/bidi/AI-Bidi/Plugins_External/**)",
+      "Bash(python3 \"/Users/bidi/AI-Bidi/Plugins_External/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py\" \"luxury premium wedding invitation animated scrollytelling\" --domain style)",
+      "Bash(python3 \"/Users/bidi/AI-Bidi/Plugins_External/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py\" \"elegant serif typography romantic premium\" --domain typography)",
+      "Bash(python3 \"/Users/bidi/AI-Bidi/Plugins_External/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py\" \"luxury wedding premium invitation\" --domain color)",
+      "Bash(python3 \"/Users/bidi/AI-Bidi/Plugins_External/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py\" \"Indian traditional wedding mandala jewel tones\" --domain color)",
+      "Bash(python3 \"/Users/bidi/AI-Bidi/Plugins_External/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py\" \"scrollytelling storytelling immersive landing page\" --domain landing)",
+      "Bash(python3 \"/Users/bidi/AI-Bidi/Plugins_External/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py\" \"character avatar illustration personalization\" --domain ux)",
+      "Bash(python3 \"/Users/bidi/AI-Bidi/Plugins_External/ui-ux-pro-max-skill/src/ui-ux-pro-max/scripts/search.py\" \"wedding invitation\" --stack nextjs)"
     ]
   }
 }
